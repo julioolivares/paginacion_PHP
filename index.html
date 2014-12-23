@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Paginacion php by julioolivares</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Paginacion php</h1>
+        <p>Clase para crear paginaciones de registros personalizadas con un mínimo de código </p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/julioolivares/paginacion_PHP" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/julioolivares/paginacion_PHP/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/julioolivares/paginacion_PHP/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a id="clase-paginación-con-php" class="anchor" href="#clase-paginaci%C3%B3n-con-php" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clase Paginación con PHP</h1>
+
+<p>Es una completa clase que permite crear patinadores de resultados a consultas de base de datos, e interactuar con los mismos mediante una paremetrizacion inicial simple que solo requiere iniciar mínimo cuatro parámetros $config['url_paginada'], $config['total_registros'], $config['enlaces_x_pagina'], $config['registros_x_pagina'] para crear los enlaces.</p>
+
+<p>*<em>$config['url_paginada']; *</em>(Tipo Cadena)</p>
+
+<p>La url donde se usara la paginación, la misma tiene el siguiente prototipo http://localhost/ver_pagina/1</p>
+
+<p><strong>$config['total_registros'];</strong> (Tipo Entero ) Correspondiente al total de registros que retorna la consulta a la base de datos.( Num_rows()).</p>
+
+<p>*<em>$config['enlaces_x_pagina']; *</em>(Tipo Entero ) Corresponde al número de enlaces paginadores a mostrar por pagina</p>
+
+<p><strong>$config['registros_x_pagina'];</strong> (Tipo Entero ) Corresponde al número de registros a mostrar por página</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/julioolivares">julioolivares</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
