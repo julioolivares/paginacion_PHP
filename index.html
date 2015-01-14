@@ -82,6 +82,10 @@ $total_registros = $result-&gt;cantidad //es solo un ejemplo que variara según 
     <code>$link_paginacion              = $paginacion-&gt;CrearPaginacion($pagina); //el HTML ya formateado y configurado</code> 
   <code>//Luego sería ya imprimir el resultado y $link_paginacion</code> 
  <code>}</code> </p>
+
+<p>Una vez se ejecuta la función CrearPaginacion() están disponible las propiedades $Paginacion-&gt;consulta_limite y $Paginacion-&gt;consulta_cursor</p>
+
+<p>Los cuales se utilizaran en la próxima consulta según la paginación en la cláusula ** limit($Paginacion-&gt;consulta_limite, $Paginacion-&gt;consulta_cursor)**</p>
         </section>
 
         <aside id="sidebar">
