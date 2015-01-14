@@ -1,4 +1,4 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 Class Paginacion
 	{
 		private $url_paginada;
@@ -39,16 +39,16 @@ Class Paginacion
 					$registros_x_pagina 				= $config['registros_x_pagina']; 
 														  settype($registros_x_pagina, 'integer'); 
 					$this->registros_x_pagina 			= $registros_x_pagina;
-					$this->enlaces_paginados			= "<".$this->contenedor_padre_paginacion.
-														  " class='$this->class_contenedor_paginacion'>";
-					$this->cierre_contenedor_paginacion = '</'.$this->contenedor_padre_paginacion.'>';
 				else://no hacer nada
 					exit('No se recibio la configuracion necesaria para crear la paginacion $config[url_paginada], $config[total_registros], $config[registros_x_pagina], $config[enlaces_x_pagina]');
 				endif;
  			} //FINAL FUNCION __construct($config = Array())
 
  		public function CrearPaginacion($pagina) // SE DEBE EJECUTAR ESTA FUNCION ANTES DE REALIZAR LA CONSULTA A LA BASE DE DATOS 
- 			{
+ 			{	$this->enlaces_paginados			= "<".$this->contenedor_padre_paginacion.
+														  " class='$this->class_contenedor_paginacion'>";
+				$this->cierre_contenedor_paginacion = '</'.$this->contenedor_padre_paginacion.'>';
+
  				$this->numero_paginas = ceil($this->total_registros / $this->registros_x_pagina);
  				if($this->numero_paginas == 1): //NO CREAR PAGINACION SI NO ES MAYOR DE UNO LA PAGINA
  					$this->consulta_limite = $this->registros_x_pagina;
@@ -122,4 +122,6 @@ Class Paginacion
  					return $this->enlaces_paginados;
 
  				endif; //FINAL IF if(!$A->numero_paginas > 1): //NO CREAR PAGINACION SI NO ES MAYOR DE UNO LA PAGINA
-	}	
+ 			}	
+
+	}
