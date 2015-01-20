@@ -20,17 +20,24 @@ Class Paginacion
 		public  $enlaces_paginados 				= '';
 		public  $text_primera_pagina       		= 'Primera Página';
 		public  $text_ultima_pagina        		= 'Última Página'; 
+<<<<<<< HEAD
 		public 	$tex_total_resultados	        = 'Total De Resultados';
+=======
+>>>>>>> origin/master
 		public  $mostrar_pagina_primera_no_cont = TRUE;
 		public  $mostrar_pagina_ultima_no_cont  = TRUE;
 		public 	$consulta_limite;
 		public  $consulta_cursor;
+<<<<<<< HEAD
 		public 	$parametros_url				    ='';
+=======
+>>>>>>> origin/master
 
 
 		public function __construct($config = Array())
 			{
 				if(count($config) > 0): //inicializar los parameros. 
+<<<<<<< HEAD
 					$this->url_paginada       = $config['url_paginada'];
 					$total_registros          = $config['total_registros']; 
 											    settype($total_registros, 'integer');
@@ -43,6 +50,18 @@ Class Paginacion
 					$this->registros_x_pagina = $registros_x_pagina;
 					$this->tex_total_resultados = $this->tex_total_resultados.' = '.$this->total_registros; 
 					        
+=======
+					$this->url_paginada 				= $config['url_paginada'];
+					$total_registros         			= $config['total_registros']; 
+														  settype($total_registros, 'integer');
+					$this->total_registros   			= $total_registros;
+					$enlaces_x_pagina 		  			= $config['enlaces_x_pagina']; 
+														  settype($enlaces_x_pagina, 'integer');
+					$this->enlaces_x_pagina   			= $enlaces_x_pagina;
+					$registros_x_pagina 				= $config['registros_x_pagina']; 
+														  settype($registros_x_pagina, 'integer'); 
+					$this->registros_x_pagina 			= $registros_x_pagina;
+>>>>>>> origin/master
 				else://no hacer nada
 					exit('No se recibio la configuracion necesaria para crear la paginacion $config[url_paginada], $config[total_registros], $config[registros_x_pagina], $config[enlaces_x_pagina]');
 				endif;
@@ -83,22 +102,36 @@ Class Paginacion
 		 					if((!isset($this->grupo_anterior) && $this->enlace_grupo > 1) || (!isset($this->grupo_anterior) && $this->mostrar_pagina_primera_no_cont === TRUE)): //EVALUAR QUE NO SE HAYA CREADO EL ENLACE GRUPO ANTERIOR Y SOLO SE DEBRE CREAR UNA SOLA VEZ
 		 						$this->grupo_anterior      = (($inicio_grupo - $this->enlaces_x_pagina) > 0 ) 
 		 													  ? ($inicio_grupo - $this->enlaces_x_pagina) : 'javascript:console.log("of")';							  
+<<<<<<< HEAD
 		 						$link_primera_pagina	   = $this->url_paginada.'/1/'.rand(0,9999).$this->parametros_url;
 		 						$class_primer_enlace       =  '';	
 		 						$link_grupo_anterior       = ($this->enlace_grupo > 1) ? "$this->url_paginada/$this->grupo_anterior/".rand(0,9999).
 		 													  $this->parametros_url : 'javascript:console.log("of")';
 		 						$class_link_grupo_anterior = ($link_grupo_anterior === 'javascript:console.log("of")') ? 'disabled' : '';											
 
+=======
+		 						$link_primera_pagina	   = $this->url_paginada.'/1/'.rand(0,9999).'';
+		 						$class_primer_enlace       =  '';	
+		 						$link_grupo_anterior       = ($this->enlace_grupo > 1) ? "$this->url_paginada/$this->grupo_anterior/".rand(0,9999).'' : 'javascript:console.log("of")';
+		 						$class_link_grupo_anterior = ($link_grupo_anterior === 'javascript:console.log("of")') ? 'disabled' : '';											
+
+		 						//echo "link anterior: $link_grupo_anterior link_primera_pagina: $link_primera_pagina"; exit;
+>>>>>>> origin/master
 		 						$this->enlaces_paginados .= "<$this->contenedor_hijo_paginacion class='$class_primer_enlace'> <a href='$link_primera_pagina' 
 															title='Ir al Principio'>$this->text_primera_pagina</a> </$this->contenedor_hijo_paginacion>
 															<$this->contenedor_hijo_paginacion class= '$class_link_grupo_anterior'> <a href='$link_grupo_anterior'title='Ver Páginas Anteriores'>
 															$this->text_grupo_anterior</a> </$this->contenedor_hijo_paginacion>
+<<<<<<< HEAD
 															<$this->contenedor_hijo_paginacion class='$class_enlace_activo'> <a href='$this->url_paginada/$inicio_grupo/".rand(0,9999).$this->parametros_url.
+=======
+															<$this->contenedor_hijo_paginacion class='$class_enlace_activo'> <a href='$this->url_paginada/$inicio_grupo/".rand(0,9999).
+>>>>>>> origin/master
 															"' title='Ver pagina $inicio_grupo'>$inicio_grupo </a> </$this->contenedor_hijo_paginacion>";
 
 		 					else:
  								$this->enlaces_paginados .= "<$this->contenedor_hijo_paginacion class='$class_enlace_activo'> 
 															<a href='$this->url_paginada/$inicio_grupo/".rand(0,9999).
+<<<<<<< HEAD
 															$this->parametros_url."' title='Ver pagina $inicio_grupo'>$inicio_grupo </a> 
 															</$this->contenedor_hijo_paginacion>";	
 		 					endif; //FINAL IF if(!isset($this->grupo_anterior) && $this->enlace_grupo > 1): CREAR ENLACE ANTERIOR Y PRIMERA PAGINA
@@ -108,6 +141,16 @@ Class Paginacion
 		 						$class_ultima_pagina      = '';
 		 						$this->grupo_siguiente    = ($inicio_grupo == $this->numero_paginas) ? 'javascript:console.log("of")' 
 		 													: $this->url_paginada.'/'.($final_grupo + 1).'/'.rand(0,9999).$this->parametros_url;
+=======
+															"' title='Ver pagina $inicio_grupo'>$inicio_grupo </a> </$this->contenedor_hijo_paginacion>";	
+		 					endif; //FINAL IF if(!isset($this->grupo_anterior) && $this->enlace_grupo > 1): CREAR ENLACE ANTERIOR Y PRIMERA PAGINA
+		 					
+		 					if((!isset($this->grupo_siguiente) && $this->enlace_grupo < $this->ultimo_grupo && $inicio_grupo == $final_grupo) || (($this->mostrar_pagina_ultima_no_cont === TRUE) && !isset($this->grupo_siguiente) && $inicio_grupo == $this->numero_paginas))://EVALUAR QUE NO SE HAYA CREADO EL ENLACE GRUPO ANTERIOR Y SOLO SE DEBRE CREAR UNA SOLA VEZ
+		 						$link_ultima_pagina		  = $this->url_paginada.'/'.$this->numero_paginas.'/'.rand(0,9999);
+		 						$class_ultima_pagina      = '';
+		 						$this->grupo_siguiente    = ($inicio_grupo == $this->numero_paginas) ? 'javascript:console.log("of")' 
+		 													: $this->url_paginada.'/'.($final_grupo + 1).'/'.rand(0,9999).'';
+>>>>>>> origin/master
 		 						$class_grupo_siguiente    = ($this->grupo_siguiente === 'javascript:console.log("of")') ? 'disabled' : '';
 
 		 						$this->enlaces_paginados .= "<$this->contenedor_hijo_paginacion class='$class_grupo_siguiente'>
